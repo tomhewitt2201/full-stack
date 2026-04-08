@@ -1,20 +1,24 @@
 const Hello = props => {
+  console.log(props)
+
   return (
-    <div>
+    <>
       <p>Hello { props.name }, you are { props.age } years old</p>
-    </div>
+    </>
   )
 }
 
 const App = () => {
-  return (
-    <div>
-      <h1>Greetings</h1>
-      <Hello name="Alice" age={ 25 } />
-      <Hello name="Bob" age={ 30 } />
-      <Hello name="Charlie" age={ 35 } />
-    </div>
-  )
+	const [name, age] = ['Alice', 25];
+
+	return (
+		<>
+			<h1>Greetings</h1>
+
+			<Hello name={ name } age={ age } />
+			<Hello name="Bob" age={ 30 + 5 } />
+		</>
+	)
 }
 
 export default App;
