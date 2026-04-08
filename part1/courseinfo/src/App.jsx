@@ -9,15 +9,16 @@ const Hello = props => {
 }
 
 const App = () => {
-	const [name, age] = ['Alice', 25];
+	const friends = [
+		{ name: 'Peter', age: 4 },
+		{ name: 'Maya', age: 10 },
+	]
 
 	return (
-		<>
-			<h1>Greetings</h1>
-
-			<Hello name={ name } age={ age } />
-			<Hello name="Bob" age={ 30 + 5 } />
-		</>
+		<div>
+			<p>{friends[0].name} {friends[0].age}</p>
+			<p>{friends[1].name} {friends[1].age}</p>
+		</div>
 	)
 }
 
