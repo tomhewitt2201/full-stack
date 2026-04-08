@@ -1,16 +1,20 @@
-const App = () => {
-	const now = new Date()
-	const [a, b] = [10, 20];
-	console.log(now, a+b)
+const Hello = props => {
+  return (
+    <div>
+      <p>Hello { props.name }, you are { props.age } years old</p>
+    </div>
+  )
+}
 
-	return (
-		<div>
-			<p>Hello world, it is { now.toString() }</p>
-			<p>
-				{ a } plus { b } is { a + b }
-			</p>
-		</div>
-	)
+const App = () => {
+  return (
+    <div>
+      <h1>Greetings</h1>
+      <Hello name="Alice" age={ 25 } />
+      <Hello name="Bob" age={ 30 } />
+      <Hello name="Charlie" age={ 35 } />
+    </div>
+  )
 }
 
 export default App;
