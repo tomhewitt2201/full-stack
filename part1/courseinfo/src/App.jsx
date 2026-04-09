@@ -13,7 +13,13 @@ const Part = props => {
 const Content = props => {
 	return (
 		<div>
-			{ props.parts.map(part => <Part key={ part.name } part={ part.name } exercise={ part.exercises } />) }
+			{ props.parts.map(part => {
+				const { name, exercises } = part
+
+				return (
+					<Part key={ name } part={ name } exercise={ exercises } />
+				)
+			}) }
 		</div>
 	)
 }
