@@ -1,7 +1,6 @@
 // import { react, useState } from 'react'
 
 const Header = ({ course }) => <h1>{ course }</h1>
-
 const Part = ({ part, exercise }) => <p>{ part } { exercise }</p>
 
 const Content = props => {
@@ -46,11 +45,11 @@ const App = () => {
 	}
 
 	return (
-		<div>
+		<>
 			<Header course={ course.name } />
 			<Content parts={ course.parts } />
 			<Total parts={ course.parts } />
-		</div>
+		</>
 	)
  }
 
