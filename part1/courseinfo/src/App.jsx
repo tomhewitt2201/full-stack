@@ -1,14 +1,8 @@
-const Header = props => {
-	return (
-		<h1>{ props.course }</h1>
-	)
-}
+// import { react, useState } from 'react'
 
-const Part = props => {
-	return (
-		<p>{ props.part } { props.exercise }</p>
-	)
-}
+const Header = ({ course }) => <h1>{ course }</h1>
+
+const Part = ({ part, exercise }) => <p>{ part } { exercise }</p>
 
 const Content = props => {
 	return (
