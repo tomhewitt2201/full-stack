@@ -1,4 +1,4 @@
-// import { react, useState } from 'react'
+import React, { useState } from 'react'
 
 const Header = ({ course }) => <h1>{ course }</h1>
 const Part = ({ part, exercise }) => <p>{ part } { exercise }</p>
