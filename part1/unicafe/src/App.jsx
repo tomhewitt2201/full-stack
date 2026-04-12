@@ -3,10 +3,8 @@ import { useState } from 'react'
 const Button = ({ name, title, onClick }) => <button name={ name } title={ title } onClick={ onClick }>{ name }</button>
 const StatisticLine = ({ text, score }) => <p>{ text } { score }</p>
 const Statistics = ({ types, feedback, total, average, nps }) => {
-	return (
-		<>
-			<h2>statistics</h2>
-
+	if (total !== 0) {
+		return (
 			<div className="feedback-wrapper">
 				<h3>scores</h3>
 				{ types.map(type => <StatisticLine key={ type } text={ type } score={ feedback[type] } />) }
@@ -20,6 +18,12 @@ const Statistics = ({ types, feedback, total, average, nps }) => {
 				<h3>NPS</h3>
 				<StatisticLine feedback="Positive" score={ `${ nps }%` } />
 			</div>
+		)
+	}
+
+	return (
+		<>
+			<p>No feedback given</p>
 		</>
 	)
 }
@@ -46,6 +50,7 @@ const App = () => {
 			</div>
 
 			{/* stats */}
+			<h2>statistics</h2>
 			<Statistics types={ types } feedback={ feedback } total={ total } average={ average } nps={ nps } />
         </div>
     )
