@@ -1,23 +1,32 @@
 import { useState } from 'react'
 
 const Button = ({ name, title, onClick }) => <button name={ name } title={ title } onClick={ onClick }>{ name }</button>
-const StatisticLine = ({ text, score }) => <p>{ text } { score }</p>
+const StatisticLine = ({ text, score }) => {
+	return (
+		<tr>
+			<td>{ text }</td>
+			<td>{ score }</td>
+		</tr>
+	)
+}
 const Statistics = ({ types, feedback, total, average, nps }) => {
 	if (total !== 0) {
 		return (
-			<div className="feedback-wrapper">
-				<h3>scores</h3>
-				{ types.map(type => <StatisticLine key={ type } text={ type } score={ feedback[type] } />) }
+			<table>
+				<tbody>
+					{/* scores */}
+					{ types.map(type => <StatisticLine key={ type } text={ type } score={ feedback[type] } />) }
 
-				<h3>total</h3>
-				<StatisticLine feedback="Total" score={ total } />
+					{/* total */}
+					<StatisticLine text="Total" score={ total } />
 
-				<h3>average</h3>
-				<StatisticLine feedback="Average" score={ average } />
+					{/* average */}
+					<StatisticLine text="Average" score={ average } />
 
-				<h3>NPS</h3>
-				<StatisticLine feedback="Positive" score={ `${ nps }%` } />
-			</div>
+					{/* nps */}
+					<StatisticLine text="Positive" score={ `${ nps }%` } />
+				</tbody>
+			</table>
 		)
 	}
 
