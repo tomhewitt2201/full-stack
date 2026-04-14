@@ -9,6 +9,7 @@ const StatisticLine = ({ text, score }) => {
 		</tr>
 	)
 }
+
 const Statistics = ({ types, feedback, total, average, nps }) => {
 	if (total !== 0) {
 		return (
