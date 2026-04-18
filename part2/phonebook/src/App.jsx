@@ -14,9 +14,19 @@ const App = () => {
 	const addName = e => {
 		e.preventDefault()
 
-		setPersons(prev => prev.concat({ name: newName, id: persons.length + 1 }))
+		const check = persons.filter(person => person.name === newName)
 
-		setNewName('')
+		if (!newName) {
+			return alert(`Name can't be blank`)
+		}
+		
+		if (!check.length) {
+			setPersons(prev => prev.concat({ name: newName, id: persons.length + 1 }))
+		} else {
+			alert(`${ newName } is already added to phonebook`)
+		}
+
+		return setNewName('')
 	}
 
 	return (
