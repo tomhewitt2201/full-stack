@@ -1,15 +1,15 @@
-const Form = ({ onChange, value, onSubmit }) => {
-    return (
-        <form onSubmit={ onSubmit }>
-                <div>
-                    name: <input value={ value } onChange={ onChange } />
-                </div>
+import Input from './Input'
 
-                <div>
-                    <button type="submit">add</button>
-                </div>
-        </form>
-    )
-}
+const Form = ({ handleName, handleNumber, name, number, onSubmit }) => (
+    <form onSubmit={ onSubmit }>
+
+            <Input text="name" value={ name } onChange={ handleName } />
+            <Input text="number" value={ number } onChange={ handleNumber } />
+
+            <div>
+                <button type="submit">add</button>
+            </div>
+    </form>
+)
 
 export default Form
